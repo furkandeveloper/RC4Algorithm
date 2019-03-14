@@ -1,0 +1,52 @@
+﻿@model RC4Algorithm.Models.RC4ViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout-Home.cshtml";
+}
+<title>RC4 şifreleme Algoritması</title>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text">
+            <h1><strong>RC4</strong> Algoritması</h1>
+            <div class="description">
+                <p>
+                    Plain Text alanına şifrelemek istediğiniz metni girin.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form-box">
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3>RC4 Algoritması</h3>
+                    <p> Plain Text alanına şifrelemek istediğiniz metni girin.</p>
+                </div>
+                <div class="form-top-right">
+                    <i class="fa fa-key"></i>
+                </div>
+            </div>
+            <div class="form-bottom">
+                <div class="text-danger" asp-validation-summary="All"></div>
+                <form asp-action="Index" asp-controller="Home" method="post" class="login-form">
+                    <div class="form-group">
+                        <label class="sr-only" for="form-username">Key</label>
+                        <input asp-for="Key" class="form-username form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="form-password">Plain Text</label>
+                        <input asp-for="PlainText" class="form-control" placeholder="Şifrelemek istediğiniz metni girin...">
+                    </div>
+                    @if (Model.ChiperText != null)
+                    {
+                        <div class="form-group">
+                            <p>Chiper Text : @Model.ChiperText</p>
+                        </div>
+                    }
+                    <button type="submit" class="btn">Şifrele</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
