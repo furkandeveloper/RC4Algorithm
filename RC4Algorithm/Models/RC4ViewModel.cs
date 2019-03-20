@@ -8,7 +8,7 @@ namespace RC4Algorithm.Models
 {
     public class RC4ViewModel
     {
-        public Guid Key { get; set; }
+        public string Key { get; set; }
 
         [Required(ErrorMessage ="Plain Text alanı zorunludur.")]
         public string PlainText { get; set; }
